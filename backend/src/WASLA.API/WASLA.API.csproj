@@ -1,0 +1,12 @@
+<!-- Builds the ASP.NET Core API and connects it to the other project layers. -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../WASLA.Domain/WASLA.Domain.csproj" />
+    <ProjectReference Include="../WASLA.Infrastructure/WASLA.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

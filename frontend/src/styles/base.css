@@ -1,0 +1,51 @@
+/* Styles the starter shell with responsive spacing and accessible links. */
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: light-dark(#f6f7f9, #151c22);
+  color: light-dark(#182a38, #edf4fa);
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  max-inline-size: 42rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 8vw, 5rem) 1.25rem;
+}
+
+h1 {
+  margin-block: 0 0.25rem;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.1;
+}
+
+nav {
+  margin-block-start: 2rem;
+  border-block-start: 1px solid light-dark(#ccd5dd, #526271);
+}
+
+h2 {
+  font-size: 1.125rem;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.25rem;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+a {
+  color: light-dark(#144f81, #a1d1ff);
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
