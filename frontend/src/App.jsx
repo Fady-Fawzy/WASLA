@@ -1,8 +1,7 @@
-// Displays the main page of the WASLA application.
-import SignInPage from "./pages/auth/SignInPage";
+import AuthLayout from "./pages/auth/AuthLayout";
 
 function App() {
-  return <SignInPage />;
+  return <AuthLayout />;
 }
 
 export default App;

@@ -1,6 +1,7 @@
 // Renders the sign-in fields, client-side validation, and form feedback.
 import { useRef, useState } from "react";
-import { Mail, LockKeyhole, Eye, EyeOff, ArrowRight, Loader2 } from "lucide-react";
+import { Mail, LockKeyhole, ArrowRight, Loader2 } from "lucide-react";
+import PasswordToggle from "./PasswordToggle";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -99,8 +100,8 @@ function LoginForm({ onSubmit, onForgotPassword }) {
   return (
     <form className="login-form" onSubmit={handleSubmit} noValidate>
       <header className="signin-header">
-        <h1 id="signin-heading">Sign in</h1>
-        <p>Use your work email to access WASLA.</p>
+        <h1 id="signin-heading" tabIndex={-1}>Sign in</h1>
+        <p>Use your email to access WASLA.</p>
       </header>
 
       <div className="form-fields">
@@ -158,20 +159,11 @@ function LoginForm({ onSubmit, onForgotPassword }) {
               required
             />
 
-            <button
-              type="button"
-              className="password-toggle"
-              onClick={() => setShowPassword((visible) => !visible)}
-              aria-label={showPassword ? "Hide password" : "Show password"}
-              aria-pressed={showPassword}
+            <PasswordToggle
+              visible={showPassword}
+              onToggle={() => setShowPassword((visible) => !visible)}
               disabled={isSubmitting}
-            >
-              {showPassword ? (
-                <EyeOff size={18} aria-hidden="true" />
-              ) : (
-                <Eye size={18} aria-hidden="true" />
-              )}
-            </button>
+            />
           </div>
 
           {errors.password && (
