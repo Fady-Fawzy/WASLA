@@ -1,0 +1,54 @@
+/* Sets the global styles, fonts, and brand colors. */
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #0B2D4D;
+  background: #FFFFFF;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --wasla-navy: #0B2D4D;
+  --wasla-orange: #F57C00;
+  --wasla-cream: #F2E9DF;
+  --wasla-slate: #8A93A3;
+  --wasla-white: #FFFFFF;
+  --wasla-text: #25364A;
+  --wasla-muted: #8491A2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: rgba(245, 124, 0, 0.2);
+}

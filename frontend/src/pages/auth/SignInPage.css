@@ -1,0 +1,404 @@
+/* Frames the WASLA sign-in form and jobsite photograph. */
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../assets/fonts/poppins/poppins-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../assets/fonts/poppins/poppins-semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../assets/fonts/poppins/poppins-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.signin-page {
+  --signin-paper: #f5f2eb;
+  --signin-ink: #253137;
+  --signin-muted: #5d5a52;
+  --signin-line: #d8d1c5;
+  --signin-field: #fffdf8;
+  --signin-accent: #9a4128;
+  --signin-error: #a12d26;
+  --signin-frame: clamp(16px, 2vw, 32px);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--signin-paper);
+  color: var(--signin-ink);
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+}
+
+.signin-page ::selection {
+  background: #ead2bd;
+  color: var(--signin-ink);
+}
+
+.signin-panel {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: min(100%, 500px);
+  margin-inline: auto;
+  padding: var(--signin-frame) clamp(24px, 4vw, 48px);
+}
+
+.signin-brand {
+  padding-block-end: 14px;
+  border-block-end: 1px solid var(--signin-line);
+}
+
+.wasla-logo {
+  display: block;
+  width: 116px;
+  height: auto;
+  margin-inline-start: -17px;
+  mix-blend-mode: multiply;
+}
+
+.signin-content {
+  align-self: center;
+  min-width: 0;
+  padding-block: clamp(36px, 7svh, 76px);
+}
+
+.signin-header {
+  margin-block-end: 30px;
+}
+
+.signin-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(44px, 4.7vw, 68px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+.signin-header p {
+  margin: 0;
+  color: var(--signin-muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.form-fields,
+.field-group {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.field-group {
+  gap: 8px;
+}
+
+.field-group label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-shell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding-inline: 14px 4px;
+  border: 1px solid #93897c;
+  border-radius: 4px;
+  background: var(--signin-field);
+  color: var(--signin-muted);
+  transition: border-color 150ms ease;
+}
+
+.input-shell:hover {
+  border-color: var(--signin-ink);
+}
+
+.input-shell.has-error {
+  border-color: var(--signin-error);
+}
+
+.input-shell > svg {
+  flex-shrink: 0;
+}
+
+.input-shell input {
+  flex: 1;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--signin-ink);
+  font-size: 16px;
+}
+
+.input-shell input::placeholder {
+  color: #6c665d;
+}
+
+.input-shell input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--signin-field) inset;
+  -webkit-text-fill-color: var(--signin-ink);
+}
+
+.input-shell:has(input:focus),
+.login-form :is(button, input[type="checkbox"]):focus-visible {
+  outline: 2px solid var(--signin-ink);
+  outline-offset: 2px;
+}
+
+.input-shell.has-error:has(input:focus) {
+  outline-color: var(--signin-error);
+}
+
+.field-error {
+  margin: 0;
+  color: var(--signin-error);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.password-toggle {
+  display: grid;
+  flex: 0 0 44px;
+  place-items: center;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--signin-muted);
+  transition: background-color 150ms ease;
+}
+
+.password-toggle:hover:not(:disabled) {
+  background-color: #eee9df;
+  color: var(--signin-ink);
+}
+
+.form-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 12px;
+  margin-block: 9px 15px;
+  color: var(--signin-muted);
+  font-size: 14px;
+}
+
+.remember-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.remember-option input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--signin-accent);
+}
+
+.forgot-link {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--signin-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+}
+
+.forgot-link:hover:not(:disabled) {
+  text-decoration-color: currentColor;
+}
+
+.signin-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 54px;
+  padding-inline: 16px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--signin-accent);
+  color: #fffdf8;
+  font-weight: 600;
+  transition: background-color 150ms ease;
+}
+
+.signin-button > svg:not(.signin-spinner) {
+  margin-inline-start: auto;
+}
+
+.signin-button:hover:not(:disabled) {
+  background: #84351f;
+}
+
+.signin-button:active:not(:disabled) {
+  background: #6d2c1b;
+}
+
+.signin-button:disabled {
+  background: #78574a;
+}
+
+.signin-spinner {
+  animation: signin-spin 0.8s linear infinite;
+}
+
+@keyframes signin-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.signin-notice {
+  margin: 0;
+}
+
+.signin-notice:not(:empty) {
+  margin-block-start: 14px;
+  padding: 10px 12px;
+  border-inline-start: 3px solid var(--signin-accent);
+  background: #eee4d7;
+  color: var(--signin-ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.signin-notice--error:not(:empty) {
+  border-color: var(--signin-error);
+  background: #f3e4de;
+  color: var(--signin-error);
+}
+
+.signin-footer {
+  padding-block-start: 16px;
+  border-block-start: 1px solid var(--signin-line);
+  color: var(--signin-muted);
+  font-size: 13px;
+}
+
+.branding-panel {
+  display: none;
+}
+
+@media (width > 820px) {
+  .signin-page {
+    grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+  }
+
+  .branding-panel {
+    display: grid;
+    grid-template-rows: minmax(240px, 1fr) auto;
+    min-width: 0;
+    margin: var(--signin-frame) var(--signin-frame) var(--signin-frame) 0;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #252d30;
+    color: #faf5eb;
+  }
+
+  .branding-photo {
+    background: #454342 url("../../assets/construction-sunset.webp") 50% 67% / cover no-repeat;
+    filter: saturate(0.66);
+  }
+
+  .branding-caption {
+    padding: clamp(24px, 4vw, 48px);
+    border-block-start: 1px solid #ffffff26;
+  }
+
+  .branding-caption::before {
+    display: block;
+    width: 32px;
+    height: 3px;
+    margin-block-end: 16px;
+    background: #c58865;
+    content: "";
+  }
+
+  .branding-caption h2 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 3.65vw, 60px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+  }
+
+  .branding-caption p {
+    max-width: 46ch;
+    margin: 0;
+    color: #dfd7cb;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 820px) {
+  :is(html, body, #root):has(.signin-page) {
+    min-width: 0;
+  }
+
+  .signin-panel {
+    padding-block: 20px 24px;
+  }
+
+  .signin-brand {
+    padding-block-end: 10px;
+  }
+
+  .wasla-logo {
+    width: 100px;
+    margin-inline-start: -14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .form-options {
+    column-gap: 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-height: 650px) {
+  .signin-content {
+    padding-block: 28px;
+  }
+
+  .signin-header {
+    margin-block-end: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signin-page *,
+  .signin-page *::before,
+  .signin-page *::after {
+    animation: none;
+    transition: none;
+  }
+}
